@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package jsrunner;
+
+service JSRunnerService {
+  rpc Run(RunRequest) returns (RunResponse) {}
+}
+
+message RunRequest {
+  string code = 1;
+}
+message RunResponse {
+  string result = 1;
+}
