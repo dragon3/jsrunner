@@ -18,7 +18,7 @@ time grpcurl \
   -import-path ./proto \
   -proto service.proto \
   -d '{"code": "1+1"}' \
-  '[::1]:50051' jsrunner.RunnerService/Run
+  '[::1]:50051' jsrunner.JSRunnerService/Run
 ```
 
 ```
@@ -27,7 +27,7 @@ while true; do grpcurl \
   -import-path ./proto \
   -proto service.proto \
   -d '{"code": "new Date()"}' \
-  '[::1]:50051' jsrunner.RunnerService/Run; sleep 1; done
+  '[::1]:50051' jsrunner.JSRunnerService/Run; sleep 1; done
 ```
 
 ### object
@@ -44,7 +44,7 @@ grpcurl \
   -import-path ./proto \
   -proto service.proto \
   -d "$(jq -cn --arg code "${CODE}" '$ARGS.named')" \
-  '[::1]:50051' jsrunner.RunnerService/Run
+  '[::1]:50051' jsrunner.JSRunnerService/Run
 ```
 
 ### long running
@@ -63,7 +63,7 @@ grpcurl \
   -import-path ./proto \
   -proto service.proto \
   -d "$(jq -cn --arg code "${CODE}" '$ARGS.named')" \
-  '[::1]:50051' jsrunner.RunnerService/Run
+  '[::1]:50051' jsrunner.JSRunnerService/Run
 ```
 
 ### memory limit
@@ -83,5 +83,5 @@ grpcurl \
   -import-path ./proto \
   -proto service.proto \
   -d "$(jq -cn --arg code "${CODE}" '$ARGS.named')" \
-  '[::1]:50051' jsrunner.RunnerService/Run
+  '[::1]:50051' jsrunner.JSRunnerService/Run
 ```
